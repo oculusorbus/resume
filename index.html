@@ -324,42 +324,41 @@
   .sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--border-strong),transparent);}
   section > .container{position:relative;z-index:1}
 
-  /* LAYER-CAKE — solid alternating tones; clean edges, no outline */
+  /* LAYER-CAKE — solid bases, flashlights at top/bottom center for diffusion */
   #about{
     background:
-      radial-gradient(ellipse 800px 400px at 50% 0%, rgba(124,92,255,0.10), transparent 60%),
-      #0b1220;
+      radial-gradient(ellipse 800px 400px at 50% 0%, rgba(124,92,255,0.18), transparent 60%),
+      #0a1020;
   }
   #education{
-    background:#0f1828;
+    background:#04070e;
   }
   #experience{
     background:
-      radial-gradient(ellipse 900px 450px at 50% 0%, rgba(244,114,182,0.08), transparent 60%),
-      #0b1220;
+      radial-gradient(ellipse 900px 450px at 50% 100%, rgba(244,114,182,0.16), transparent 60%),
+      #0a1020;
   }
   #capabilities{
-    background:#0f1828;
+    background:#04070e;
   }
   #skills{
     background:
-      radial-gradient(ellipse 700px 350px at 50% 100%, rgba(34,211,238,0.08), transparent 70%),
-      #0b1220;
+      radial-gradient(ellipse 700px 350px at 50% 100%, rgba(34,211,238,0.16), transparent 70%),
+      #0a1020;
   }
   #contact{
     background:
-      radial-gradient(ellipse 720px 420px at 50% 0%, rgba(124,92,255,0.18), transparent 65%),
-      #050811;
+      radial-gradient(ellipse 720px 420px at 50% 0%, rgba(124,92,255,0.22), transparent 65%),
+      #010205;
   }
 
   /* ABOUT */
   .about{
     font-size:17px;color:#c5cdda;
-    background:var(--panel);
+    background:#0d111b;
     border:1px solid var(--border);
     border-radius:18px;
     padding:32px;
-    backdrop-filter:blur(8px);
   }
   .about p{margin:0 0 14px}
   .about p:last-child{margin-bottom:0}
@@ -398,7 +397,7 @@
   .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   @media (max-width:720px){.grid{grid-template-columns:1fr}}
   .card{
-    background:var(--panel);
+    background:#0d111b;
     border:1px solid var(--border);
     border-radius:16px;
     padding:24px;
@@ -413,7 +412,7 @@
     opacity:0;transition:opacity .25s;
     pointer-events:none;
   }
-  .card:hover{transform:translateY(-2px);background:var(--panel-2)}
+  .card:hover{transform:translateY(-2px);background:#11151f}
   .card:hover::before{opacity:1}
   .card h3{margin:0 0 6px;font-size:17px;font-weight:600}
   .card .when{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--accent-2);margin-bottom:10px}
@@ -441,7 +440,7 @@
   .cap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
   @media (max-width:780px){.cap-grid{grid-template-columns:1fr}}
   .cap{
-    background:var(--panel);
+    background:#0d111b;
     border:1px solid var(--border);
     border-radius:16px;
     padding:24px 26px;
@@ -455,7 +454,7 @@
     -webkit-mask-composite:xor;mask-composite:exclude;
     opacity:0;transition:opacity .25s;pointer-events:none;
   }
-  .cap:hover{transform:translateY(-2px);background:var(--panel-2)}
+  .cap:hover{transform:translateY(-2px);background:#11151f}
   .cap:hover::before{opacity:1}
   .cap-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
   .cap-glyph{
