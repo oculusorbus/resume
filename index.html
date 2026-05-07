@@ -324,22 +324,28 @@
   .sec-head .rule{flex:1;height:1px;background:linear-gradient(90deg,var(--border-strong),transparent);}
   section > .container{position:relative;z-index:1}
 
-  /* LAYER-CAKE — solid bases, flashlights at top/bottom center for diffusion */
+  /* LAYER-CAKE — solid bases, flashlights at top AND bottom of every layer */
   #about{
     background:
-      radial-gradient(ellipse 800px 400px at 50% 0%, rgba(124,92,255,0.18), transparent 60%),
+      radial-gradient(ellipse 800px 400px at 50% 100%, rgba(124,92,255,0.18), transparent 60%),
       #0a1020;
   }
   #education{
-    background:#04070e;
+    background:
+      radial-gradient(ellipse 800px 400px at 50% 0%, rgba(34,211,238,0.14), transparent 60%),
+      #04070e;
   }
   #experience{
     background:
+      radial-gradient(ellipse 900px 450px at 50% 0%,   rgba(244,114,182,0.16), transparent 60%),
       radial-gradient(ellipse 900px 450px at 50% 100%, rgba(244,114,182,0.16), transparent 60%),
       #0a1020;
   }
   #capabilities{
-    background:#04070e;
+    background:
+      radial-gradient(ellipse 800px 400px at 50% 0%,   rgba(124,92,255,0.14), transparent 60%),
+      radial-gradient(ellipse 800px 400px at 50% 100%, rgba(124,92,255,0.14), transparent 60%),
+      #04070e;
   }
   #skills{
     background:
@@ -348,7 +354,8 @@
   }
   #contact{
     background:
-      radial-gradient(ellipse 720px 420px at 50% 0%, rgba(124,92,255,0.22), transparent 65%),
+      radial-gradient(ellipse 720px 420px at 50% 0%,   rgba(124,92,255,0.22), transparent 65%),
+      radial-gradient(ellipse 720px 420px at 50% 100%, rgba(124,92,255,0.22), transparent 65%),
       #010205;
   }
 
