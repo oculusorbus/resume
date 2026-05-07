@@ -322,6 +322,12 @@
       radial-gradient(ellipse 700px 350px at 50% 100%, rgba(34,211,238,0.16), transparent 70%),
       #0a1020;
   }
+  #designs{
+    background:
+      radial-gradient(ellipse 800px 400px at 50% 0%,   rgba(34,211,238,0.16), transparent 60%),
+      radial-gradient(ellipse 800px 400px at 50% 100%, rgba(124,92,255,0.18), transparent 60%),
+      #04070e;
+  }
   #contact{
     background:
       radial-gradient(ellipse 720px 420px at 50% 0%,   rgba(124,92,255,0.22), transparent 65%),
@@ -525,6 +531,123 @@
   }
   footer .mono{color:var(--muted)}
 
+  /* DESIGNS */
+  .design-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+  @media (max-width:760px){.design-grid{grid-template-columns:1fr;gap:24px}}
+  .design-card{
+    display:flex;flex-direction:column;
+    background:var(--panel);
+    border:1px solid var(--border);
+    border-radius:14px;overflow:hidden;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+  }
+  .design-card:hover{
+    border-color:var(--border-strong);
+    transform:translateY(-3px);
+    box-shadow:0 14px 36px -18px rgba(0,0,0,0.7);
+  }
+  .browser{
+    display:block;width:100%;background:transparent;border:0;padding:0;margin:0;
+    cursor:zoom-in;color:inherit;text-align:left;
+  }
+  .browser:focus-visible{outline:2px solid var(--accent-2);outline-offset:3px;border-radius:14px 14px 0 0}
+  .browser-bar{
+    display:flex;align-items:center;gap:10px;
+    padding:10px 14px;
+    background:linear-gradient(180deg,#10172a,#0c1322);
+    border-bottom:1px solid var(--border);
+  }
+  .browser-bar .dots{display:flex;gap:6px}
+  .browser-bar .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .browser-bar .dot.r{background:#ff5f57}
+  .browser-bar .dot.y{background:#febc2e}
+  .browser-bar .dot.g{background:#28c840}
+  .browser-bar .urlbar{
+    flex:1;
+    font-family:'JetBrains Mono',monospace;font-size:11.5px;
+    color:var(--muted);
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:5px 10px;
+    text-align:center;letter-spacing:.01em;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .browser-bar .lock{color:var(--accent-2);margin-right:6px;font-size:10px}
+  .shot{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#0a0e18}
+  .shot img{
+    display:block;width:100%;height:100%;
+    object-fit:cover;object-position:top center;
+    transition:transform .4s ease,filter .4s ease;
+  }
+  .design-card:hover .shot img{transform:scale(1.015);filter:saturate(1.05)}
+  .shot::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,transparent 60%,rgba(7,10,20,0.35) 100%);
+  }
+  .card-meta{padding:18px 20px 20px}
+  .card-title{font-size:17px;font-weight:600;letter-spacing:-.005em;margin:0 0 4px;color:var(--text)}
+  .card-relationship{margin:0 0 14px;font-size:13.5px;color:var(--muted)}
+  .card-meta .chips{margin-bottom:14px}
+  .card-foot{
+    display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding-top:12px;border-top:1px solid var(--border);
+  }
+  .card-foot a{
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--accent-2);text-decoration:none;
+    display:inline-flex;align-items:center;gap:6px;
+    transition:color .2s;
+  }
+  .card-foot a:hover{color:var(--text)}
+  .card-foot .ctx{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted)}
+
+  /* LIGHTBOX */
+  dialog.lightbox{
+    border:0;padding:0;margin:auto;
+    width:100%;max-width:1240px;
+    height:90vh;max-height:90vh;
+    background:#05080f;color:var(--text);
+    border:1px solid var(--border-strong);
+    border-radius:14px;overflow:hidden;
+  }
+  dialog.lightbox::backdrop{
+    background:rgba(2,4,9,0.82);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .lb-head{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 18px;
+    border-bottom:1px solid var(--border);
+    background:linear-gradient(180deg,#10172a,#0c1322);
+  }
+  .lb-head .dots{display:flex;gap:6px}
+  .lb-head .dot{width:11px;height:11px;border-radius:50%}
+  .lb-head .dot.r{background:#ff5f57}
+  .lb-head .dot.y{background:#febc2e}
+  .lb-head .dot.g{background:#28c840}
+  .lb-head .urlbar{
+    flex:1;
+    font-family:'JetBrains Mono',monospace;font-size:12px;
+    color:var(--muted);
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:6px 12px;text-align:center;
+  }
+  .lb-head .close{
+    background:transparent;border:1px solid var(--border-strong);
+    color:var(--text);width:30px;height:30px;border-radius:8px;
+    cursor:pointer;font-size:16px;line-height:1;
+  }
+  .lb-head .close:hover{border-color:var(--accent-2);color:var(--accent-2)}
+  .lb-body{
+    width:100%;height:calc(90vh - 60px);
+    overflow:auto;background:#000;
+  }
+  .lb-body img{display:block;width:100%;height:auto}
+
   /* ANIM */
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
@@ -544,6 +667,7 @@
       <a href="#experience">Experience</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#skills">Skills</a>
+      <a href="#designs">Designs</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -911,6 +1035,195 @@
   </div>
 </section>
 
+<section id="designs">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="num">06.</span><h2>Selected Designs</h2><span class="rule"></span>
+    </div>
+    <p class="reveal" style="color:var(--muted);max-width:720px;margin:-12px 0 32px;font-size:15.5px">
+      Personal web design projects built for family, friends, and side passions - covering wedding services, e-commerce, music, performance, and event sites.
+    </p>
+
+    <div class="design-grid">
+
+      <article class="design-card reveal">
+        <button class="browser" type="button"
+                data-full="images/design/iawl_full.png"
+                data-url="https://itsawonderfullifeweddings.com/"
+                aria-label="Open full-page screenshot of itsawonderfullifeweddings.com">
+          <div class="browser-bar">
+            <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+            <div class="urlbar"><span class="lock">●</span>itsawonderfullifeweddings.com</div>
+          </div>
+          <div class="shot">
+            <img src="images/design/iawl_full.png" loading="lazy" decoding="async"
+                 alt="Landing page of itsawonderfullifeweddings.com showing the script-style wordmark, kissing-couple hero, and Best of Weddings Hall of Fame inductee section." />
+          </div>
+        </button>
+        <div class="card-meta">
+          <h3 class="card-title">It's a Wonderful Life Weddings</h3>
+          <p class="card-relationship">Wedding officiant - the pastor who married us.</p>
+          <div class="chips">
+            <span class="chip"><span class="glyph">▹</span>Wedding services</span>
+            <span class="chip"><span class="glyph">▹</span>Multi-page</span>
+            <span class="chip"><span class="glyph">▹</span>Design + Build</span>
+          </div>
+          <div class="card-foot">
+            <span class="ctx">// personal</span>
+            <a href="https://itsawonderfullifeweddings.com/" target="_blank" rel="noopener">visit live ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="design-card reveal">
+        <button class="browser" type="button"
+                data-full="images/design/sd_full.png"
+                data-url="https://scrappydolls.com/"
+                aria-label="Open full-page screenshot of scrappydolls.com">
+          <div class="browser-bar">
+            <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+            <div class="urlbar"><span class="lock">●</span>scrappydolls.com</div>
+          </div>
+          <div class="shot">
+            <img src="images/design/sd_full.png" loading="lazy" decoding="async"
+                 alt="Landing page of scrappydolls.com showing the 'Cloth dolls, stitched one at a time' headline alongside a featured handmade doll, on a warm cream background." />
+          </div>
+        </button>
+        <div class="card-meta">
+          <h3 class="card-title">Scrappy Dolls</h3>
+          <p class="card-relationship">My mother's e-commerce site for her handcrafted dolls.</p>
+          <div class="chips">
+            <span class="chip"><span class="glyph">▹</span>E-commerce</span>
+            <span class="chip"><span class="glyph">▹</span>Storefront</span>
+            <span class="chip"><span class="glyph">▹</span>Design + Build</span>
+          </div>
+          <div class="card-foot">
+            <span class="ctx">// family</span>
+            <a href="https://scrappydolls.com/" target="_blank" rel="noopener">visit live ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="design-card reveal">
+        <button class="browser" type="button"
+                data-full="images/design/n87_full.png"
+                data-url="https://nineteeneightyseven.com/"
+                aria-label="Open full-page screenshot of nineteeneightyseven.com">
+          <div class="browser-bar">
+            <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+            <div class="urlbar"><span class="lock">●</span>nineteeneightyseven.com</div>
+          </div>
+          <div class="shot">
+            <img src="images/design/n87_full.png" loading="lazy" decoding="async"
+                 alt="Landing page of nineteeneightyseven.com with the band wordmark, black-and-white duo portrait, and 'A carefully woven mishmash...' pull quote." />
+          </div>
+        </button>
+        <div class="card-meta">
+          <h3 class="card-title">Nineteen Eighty Seven</h3>
+          <p class="card-relationship">A personal music project - my electro-pop duo's site.</p>
+          <div class="chips">
+            <span class="chip"><span class="glyph">▹</span>Music</span>
+            <span class="chip"><span class="glyph">▹</span>Embedded media</span>
+            <span class="chip"><span class="glyph">▹</span>Design + Build</span>
+          </div>
+          <div class="card-foot">
+            <span class="ctx">// personal</span>
+            <a href="https://nineteeneightyseven.com/" target="_blank" rel="noopener">visit live ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="design-card reveal">
+        <button class="browser" type="button"
+                data-full="images/design/gs_full.png"
+                data-url="https://glamingostilts.com/"
+                aria-label="Open full-page screenshot of glamingostilts.com">
+          <div class="browser-bar">
+            <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+            <div class="urlbar"><span class="lock">●</span>glamingostilts.com</div>
+          </div>
+          <div class="shot">
+            <img src="images/design/gs_full.png" loading="lazy" decoding="async"
+                 alt="Landing page of glamingostilts.com with a full-bleed editorial portrait and 'Higher heels with Glamingo Stilts' tagline overlay." />
+          </div>
+        </button>
+        <div class="card-meta">
+          <h3 class="card-title">Glamingo Stilts</h3>
+          <p class="card-relationship">My wife's stilt-walking performance site.</p>
+          <div class="chips">
+            <span class="chip"><span class="glyph">▹</span>Performance</span>
+            <span class="chip"><span class="glyph">▹</span>WordPress</span>
+            <span class="chip"><span class="glyph">▹</span>Design + Build</span>
+          </div>
+          <div class="card-foot">
+            <span class="ctx">// family</span>
+            <a href="https://glamingostilts.com/" target="_blank" rel="noopener">visit live ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="design-card reveal">
+        <button class="browser" type="button"
+                data-full="images/design/mk_full.png"
+                data-url="https://miahandkeni.com/"
+                aria-label="Open full-page screenshot of miahandkeni.com">
+          <div class="browser-bar">
+            <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+            <div class="urlbar"><span class="lock">●</span>miahandkeni.com</div>
+          </div>
+          <div class="shot">
+            <img src="images/design/mk_full.png" loading="lazy" decoding="async"
+                 alt="Landing page of miahandkeni.com showing the M&K monogram, a couple in front of a waterfall, and the Saturday May 18th wedding date card." />
+          </div>
+        </button>
+        <div class="card-meta">
+          <h3 class="card-title">Miah &amp; Keni</h3>
+          <p class="card-relationship">Our engagement and wedding site.</p>
+          <div class="chips">
+            <span class="chip"><span class="glyph">▹</span>Wedding event</span>
+            <span class="chip"><span class="glyph">▹</span>Multi-page</span>
+            <span class="chip"><span class="glyph">▹</span>Design + Build</span>
+          </div>
+          <div class="card-foot">
+            <span class="ctx">// personal</span>
+            <a href="https://miahandkeni.com/" target="_blank" rel="noopener">visit live ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="design-card reveal">
+        <button class="browser" type="button"
+                data-full="images/design/rr_full.png"
+                data-url="https://ryanrothmeyer.com/"
+                aria-label="Open full-page screenshot of ryanrothmeyer.com">
+          <div class="browser-bar">
+            <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+            <div class="urlbar"><span class="lock">●</span>ryanrothmeyer.com</div>
+          </div>
+          <div class="shot">
+            <img src="images/design/rr_full.png" loading="lazy" decoding="async"
+                 alt="Landing page of ryanrothmeyer.com showing the RR monogram, two black-and-white drumming photos, and 'Drummer · Performer · Songwriter · Instructor' card." />
+          </div>
+        </button>
+        <div class="card-meta">
+          <h3 class="card-title">Ryan Rothmeyer</h3>
+          <p class="card-relationship">A drummer friend's site for his music school lessons.</p>
+          <div class="chips">
+            <span class="chip"><span class="glyph">▹</span>Musician portfolio</span>
+            <span class="chip"><span class="glyph">▹</span>Multi-page</span>
+            <span class="chip"><span class="glyph">▹</span>Design + Build</span>
+          </div>
+          <div class="card-foot">
+            <span class="ctx">// friend</span>
+            <a href="https://ryanrothmeyer.jeremiahbarber.com/" target="_blank" rel="noopener">visit live ↗</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="contact reveal">
@@ -926,6 +1239,17 @@
   </div>
 </section>
 
+<dialog class="lightbox" id="lightbox" aria-label="Full-page design preview">
+  <div class="lb-head">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="urlbar" id="lb-url">about:blank</div>
+    <button class="close" id="lb-close" type="button" aria-label="Close preview">×</button>
+  </div>
+  <div class="lb-body">
+    <img id="lb-img" src="" alt="" />
+  </div>
+</dialog>
+
 <footer>
   <div class="container">
     <div class="mono">&copy; <span id="yr"></span> Jeremiah Barber · San Antonio, TX</div>
@@ -936,6 +1260,32 @@
   document.getElementById('yr').textContent = new Date().getFullYear();
   const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), {threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Designs lightbox
+  (function(){
+    const dlg = document.getElementById('lightbox');
+    if (!dlg) return;
+    const img = document.getElementById('lb-img');
+    const url = document.getElementById('lb-url');
+    const body = dlg.querySelector('.lb-body');
+    const closeBtn = document.getElementById('lb-close');
+    document.querySelectorAll('.browser').forEach(btn => {
+      btn.addEventListener('click', () => {
+        img.src = btn.dataset.full;
+        img.alt = btn.querySelector('img').alt;
+        url.textContent = btn.dataset.url.replace(/^https?:\/\//,'');
+        body.scrollTop = 0;
+        if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open','');
+        img.addEventListener('load', () => { body.scrollTop = 0; }, { once:true });
+      });
+    });
+    closeBtn.addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', e => {
+      const r = dlg.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dlg.close();
+    });
+    dlg.addEventListener('close', () => { img.src = ''; });
+  })();
 </script>
 </body>
 </html>
